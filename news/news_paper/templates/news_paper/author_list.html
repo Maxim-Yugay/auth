@@ -1,0 +1,30 @@
+
+
+{% block titile %}
+Posts
+<hr>
+{% endblock titile %}
+
+{% block content%}
+{% if Author %}
+<tabl>
+    <tr>
+        <td>Заголовок</td>
+        <td>Текст</td>
+        <td>Дата</td>
+    </tr>
+
+    {% for a in Author %}
+
+        <tr>
+            <td>{{a.title}}</td>
+            <td>{{a.text|truncatechars:20}}</td>
+            <td>{{a.dateCreation}}</td>
+        </tr>
+
+</tabl>
+    {% endfor %}
+{% else %}
+    <td>Нет ни одной публикации</td>
+{% endif %}
+{% endblock content %}
